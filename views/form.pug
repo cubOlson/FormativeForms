@@ -1,0 +1,14 @@
+extends layout.pug
+block content
+    form(action="/" method="post") 
+            input(type="hidden" name="_csrf" value="{{csrfToken}}")
+            label(for="firstName") First Name
+            input(type="text" name="firstName" label="" placeholder='Uprade NOOOW' required)
+            label(for="lastName") Last Name
+            input(type="text" name="lastName" placeholder='Uprade NOOOW' required)
+            label(for="email") Email
+            input(type="email" name="email" placeholder='Uprade NOOOW' required)
+            label(for="password") Password
+            input(type="password" name="password" placeholder='Uprade NOOOW' required)
+            label(for="confirmedPassword") Password Confirmed
+            input(type="password" name="confirmedPassword" placeholder='Uprade NOOOW' required)
