@@ -1,14 +1,15 @@
 extends layout.pug
 block content
-    form(action="/" method="post") 
+    form(action="/create" method="post") 
             input(type="hidden" name="_csrf" value="{{csrfToken}}")
-            label(for="firstName") First Name
-            input(type="text" name="firstName" label="" placeholder='Uprade NOOOW' required)
-            label(for="lastName") Last Name
-            input(type="text" name="lastName" placeholder='Uprade NOOOW' required)
-            label(for="email") Email
-            input(type="email" name="email" placeholder='Uprade NOOOW' required)
-            label(for="password") Password
-            input(type="password" name="password" placeholder='Uprade NOOOW' required)
-            label(for="confirmedPassword") Password Confirmed
-            input(type="password" name="confirmedPassword" placeholder='Uprade NOOOW' required)
+            mixin field(id, type, value, label)
+             div
+              label(for=id)= label
+              input(type=type, name=id, placeholder=value, required)
+            ul
+             +field("firstName", "text", "upgrade now!", "First Name")
+             +field("lastName", "text", "upgrade now!", "Last Name")
+             +field("email", "email", "upgrade now!", "Email")
+             +field("password", "password", "upgrade now!", "Password")
+             +field("confirmedPassword", "password", "upgrade now!", "Confirm Password")
+            input(type="submit" value="Create User" name="Create User")

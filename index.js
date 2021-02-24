@@ -19,6 +19,16 @@ app.get("/create", csrfProtection, (req, res) => {
   res.render('form', { title: "Create Normal User", csrfToken: req.csrfToken() });
 });
 
+app.post("/create", async (req, res) => {
+  const { firstName, lastName, email, password, confirmedPassword } = req.body;
+  const errors = [];
+
+  if (!firstName) {
+    errors.push("Please fill out the first name field and upgrade to premium")
+    
+  }
+})
+
 const users = [
   {
     id: 1,
